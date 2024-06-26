@@ -33,6 +33,7 @@ struct ContentView: View {
                 .padding()
             
             Text("Status: \(viewModel.status)")
+                .padding(.bottom, 16)
 
             Map(
               coordinateRegion: $region,
@@ -40,9 +41,11 @@ struct ContentView: View {
               userTrackingMode: .constant(.follow)
             )
                 .frame(height: 250)
-                .padding(20)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
                 //.edgesIgnoringSafeArea(.all)
         }
+        .padding(.top, 100)
+        .padding(.horizontal, 16)
         .onAppear { viewModel.fetchData() }
     }
 }
