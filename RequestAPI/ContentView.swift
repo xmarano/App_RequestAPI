@@ -6,19 +6,49 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    @StateObject private var viewModel = SunriseSunset()
+
+    let locationManager = CLLocationManager()
+
+    @State var region = MKCoordinateRegion(
+        center: .init(latitude: 0,longitude: 0),
+        span: .init(latitudeDelta: 10, longitudeDelta: 10)
+    )
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("City: \(viewModel.city)")
+                .font(.largeTitle)
+                .padding(.bottom)
+            Text("Sunrise: \(viewModel.sunrise)")
+            Text("Sunset: \(viewModel.sunset)")
+            Text("Day length: \(viewModel.day_length)")
+            Text("Latitude: \(viewModel.map_latitude)")
+            Text("Longitude: \(viewModel.map_longitude)")
+            
+            Button("Fetch Data") { viewModel.fetchData() }
+                .padding()
+            
+            Text("Status: \(viewModel.status)")
+
+            Map(
+              coordinateRegion: $region,
+              showsUserLocation: true,
+              userTrackingMode: .constant(.follow)
+            )
+                .frame(height: 250)
+                .padding(20)
+                //.edgesIgnoringSafeArea(.all)
         }
-        .padding()
+        .onAppear { viewModel.fetchData() }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

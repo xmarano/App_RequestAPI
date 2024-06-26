@@ -11,6 +11,7 @@
 		B3F8B2C92C2ADAC300B1950D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F8B2C82C2ADAC300B1950D /* ContentView.swift */; };
 		B3F8B2CB2C2ADAC600B1950D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F8B2CA2C2ADAC600B1950D /* Assets.xcassets */; };
 		B3F8B2CE2C2ADAC600B1950D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F8B2CD2C2ADAC600B1950D /* Preview Assets.xcassets */; };
+		B3F8B2D52C2ADCD300B1950D /* RequestFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F8B2D42C2ADCD300B1950D /* RequestFunc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B3F8B2C82C2ADAC300B1950D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B3F8B2CA2C2ADAC600B1950D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3F8B2CD2C2ADAC600B1950D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3F8B2D42C2ADCD300B1950D /* RequestFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFunc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				B3F8B2C62C2ADAC300B1950D /* RequestAPIApp.swift */,
+				B3F8B2D42C2ADCD300B1950D /* RequestFunc.swift */,
 				B3F8B2C82C2ADAC300B1950D /* ContentView.swift */,
 				B3F8B2CA2C2ADAC600B1950D /* Assets.xcassets */,
 				B3F8B2CC2C2ADAC600B1950D /* Preview Content */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3F8B2C92C2ADAC300B1950D /* ContentView.swift in Sources */,
+				B3F8B2D52C2ADCD300B1950D /* RequestFunc.swift in Sources */,
 				B3F8B2C72C2ADAC300B1950D /* RequestAPIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +279,8 @@
 				DEVELOPMENT_TEAM = X5X446BKA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +310,8 @@
 				DEVELOPMENT_TEAM = X5X446BKA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
