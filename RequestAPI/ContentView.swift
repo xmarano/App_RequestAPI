@@ -13,23 +13,24 @@ struct ContentView: View {
 
     let locationManager = CLLocationManager()
 
-    @State var region = MKCoordinateRegion(
-        center: .init(latitude: 0,longitude: 0),
-        span: .init(latitudeDelta: 10, longitudeDelta: 10)
-    )
-
     var body: some View {
         VStack {
+            @State var region = MKCoordinateRegion(
+                center: .init(latitude: viewModel.map_latitude, longitude: viewModel.map_longitude),
+                span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
+            )
+
             Text("City: \(viewModel.city)")
                 .font(.largeTitle)
                 .padding(.bottom)
+
             Text("Sunrise: \(viewModel.sunrise)")
             Text("Sunset: \(viewModel.sunset)")
             Text("Day length: \(viewModel.day_length)")
             Text("Latitude: \(viewModel.map_latitude)")
             Text("Longitude: \(viewModel.map_longitude)")
             
-            Button("Fetch Data") { viewModel.fetchData() }
+            Button("Update Data") { viewModel.fetchData() }
                 .padding()
             
             Text("Status: \(viewModel.status)")
@@ -37,15 +38,14 @@ struct ContentView: View {
 
             Map(
               coordinateRegion: $region,
-              showsUserLocation: true,
-              userTrackingMode: .constant(.follow)
+              showsUserLocation: true
             )
                 .frame(height: 250)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 //.edgesIgnoringSafeArea(.all)
         }
         .padding(.top, 100)
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 30)
         .onAppear { viewModel.fetchData() }
     }
 }
