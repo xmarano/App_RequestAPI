@@ -10,20 +10,21 @@ import MapKit
 
 struct ContentView: View {
     @StateObject private var viewModel = SunriseSunset()
-
+    @State private var showingIP = false
+    
     let locationManager = CLLocationManager()
-
+    
     var body: some View {
         VStack {
             @State var region = MKCoordinateRegion(
                 center: .init(latitude: viewModel.map_latitude, longitude: viewModel.map_longitude),
                 span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2)
             )
-
+            
             Text("City: \(viewModel.city)")
                 .font(.largeTitle)
                 .padding(.bottom)
-
+            
             Text("Sunrise: \(viewModel.sunrise)")
             Text("Sunset: \(viewModel.sunset)")
             Text("Day length: \(viewModel.day_length)")
@@ -33,9 +34,9 @@ struct ContentView: View {
             Button("Update Data") { viewModel.fetchData() }
                 .padding()
             
-            Text("Status: \(viewModel.status)")
+            Button("Status: \(viewModel.status)") { showingIP = true }
                 .padding(.bottom, 16)
-
+            
             Map(
               coordinateRegion: $region,
               showsUserLocation: true
@@ -47,6 +48,12 @@ struct ContentView: View {
         .padding(.top, 100)
         .padding(.horizontal, 30)
         .onAppear { viewModel.fetchData() }
+        
+        .sheet(isPresented: $showingIP, content: {
+            trackIpView()
+                .presentationDetents([.height(.infinity)])
+                .presentationCornerRadius(25)
+        })
     }
 }
 
